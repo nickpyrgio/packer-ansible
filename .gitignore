@@ -1,0 +1,5 @@
+output/
+.vscode/
+box/
+*.checksum
+custom.auto.pkrvars.hcl

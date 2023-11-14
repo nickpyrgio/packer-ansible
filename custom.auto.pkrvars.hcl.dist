@@ -1,0 +1,48 @@
+// qemuargs = [
+//   ["-smp", "4"]
+// ]
+// memory    = "2048"
+// disk_size = "14G"
+
+// user_crypted_password = "$6$PmyDbSfizwgfC5En$/lHF/7ZuZR9IiXoUuGM/DWiUVA9S2Psi5Hxx7bLEBdQk8zZ6WH.lg4IzRDqbYvCaE23Bs.VIZHpXAPzaFYijR/"
+// user_password         = "vagrant"
+// user                  = "vagrant"
+
+// //ansible
+// packer_ansible_playbook_command    = ""
+// packer_ansible_use_proxy           = true
+// packer_ansible_keep_inventory_file = false
+
+// packer_ansible_playbook_dir        = "packer-ansible"
+// packer_ansible_playbook            = "base_playbook.yml"
+// packer_ansible_inventory_directory = "../"
+// ansible_repository_playbook_dir    = ""
+
+// isos = {
+//   "debian11-netinst-local" = "/opt/iso/debian-11.8.0-amd64-netinst.iso"
+//   "debian11-dvd-local"     = "/opt/iso/debian-11.8.0-amd64-DVD-1.iso"
+//   "debian11_base"          = "output/debian11_base/debian11_base.qcow2"
+//   "debian11_dvd"           = "output/debian11_dvd/debian11_dvd.qcow2"
+//   "debian12-netinst-local" = "/opt/iso/debian-12.2.0-amd64-netinst.iso"
+//   "debian12-dvd-local"     = "/opt/iso/debian-12.2.0-amd64-DVD-1.iso"
+//   "debian12_base"          = "output/debian12_base/debian12_base.qcow2"
+//   "debian12_cloud"         = "output/debian12_base_cloud/debian12_base_cloud.qcow2"
+// }
+// iso_checksums = {
+//   "debian11-netinst-local" = "md5:ab17fda87b7daf4cc9f4f47272ecd8e7"
+//   "debian11-dvd-local"     = "md5:3d9a9119fc1b71b2f0bdaac2241cbec8"
+//   "debian11_base"          = "none"
+//   "debian11_dvd"           = "none"
+//   "debian12-netinst-local" = "md5:1f1736b84afda429269821c3b74be2e3"
+//   "debian12-dvd-local"     = "md5:4d9177d4d4964b2b325652572710ae68"
+//   "debian12_base"          = "none"
+//   "debian12_cloud"         = "none"
+// }
+
+headless = false
+packer_ansible_playbook_raw_arguments = [
+  // https://github.com/hashicorp/packer-plugin-ansible/issues/110
+  "--scp-extra-args",
+  "'-O'",
+  "-v"
+]

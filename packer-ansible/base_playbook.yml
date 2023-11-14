@@ -1,0 +1,15 @@
+---
+
+- hosts: "all"
+  gather_facts: no
+  tasks:
+    - command: "cloud-init status --wait"
+      when: "'cloud-init-servers' in group_names"
+
+    - block:
+      - name: Add user ssh public key
+        authorized_key:
+          user: "{{ packer_user }}"
+          state: present
+          key: '{{ packer_user_ssh_public_key }}'
+        when: packer_user_ssh_public_key | length > 0
