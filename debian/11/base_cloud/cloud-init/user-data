@@ -31,6 +31,9 @@ users:
     uid: 5000
     shell: "/bin/bash"
 
+runcmd:
+  - 'groupmod -g 5000 vagrant'
+
 # Valid Values:
 #   name: The user's login name
 #   expiredate: Date on which the user's account will be disabled.
