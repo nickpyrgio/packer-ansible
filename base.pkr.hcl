@@ -133,7 +133,7 @@ variable "packer_ansible_playbook_command" {
 
 variable "packer_ansible_use_proxy" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "packer_ansible_keep_inventory_file" {
