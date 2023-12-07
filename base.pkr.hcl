@@ -163,7 +163,12 @@ variable "packer_ansible_skip_tags" {
 
 variable "packer_ansible_playbook_raw_arguments" {
   type    = list(string)
-  default = []
+  default = [
+    // https://github.com/hashicorp/packer-plugin-ansible/issues/110
+    "--scp-extra-args",
+    "'-O'",
+    "-v"
+  ]
 }
 
 variable "packer_ansible_groups" {
