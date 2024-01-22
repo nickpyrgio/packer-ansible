@@ -14,7 +14,6 @@ mkdir -p \
 
 cd ${PACKER_ENV_DIR}
 PACKER_ENV_DIR=`pwd`
-echo ${PACKER_ENV_DIR}
 
 ln -sf ../${PACKER_PROJECT_DIR_NAME}/base.pkr.hcl .
 if ! test -f ${PACKER_ENV_DIR}/custom.auto.pkrvars.hcl; then
@@ -22,7 +21,7 @@ if ! test -f ${PACKER_ENV_DIR}/custom.auto.pkrvars.hcl; then
 fi
 
 cd ${PACKER_ENV_DIR}/ansible
-ln -sf ../../${PACKER_PROJECT_DIR_NAME}/base_playbook.yml .
+ln -sf ../../${PACKER_PROJECT_DIR_NAME}/ansible/base_playbook.yml .
 
 cd ${PACKER_ENV_DIR}/debian/10
 ln -sf ../../../${PACKER_PROJECT_DIR_NAME}/debian/10/base .
