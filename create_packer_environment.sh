@@ -6,11 +6,11 @@ mkdir -p \
     ${PACKER_ENV_DIR}/debian/10/ \
     ${PACKER_ENV_DIR}/debian/11/ \
     ${PACKER_ENV_DIR}/debian/12 \
-    ${PACKER_ENV_DIR}/packer-ansible \
-    ${PACKER_ENV_DIR}/packer-ansible/roles \
-    ${PACKER_ENV_DIR}/packer-inventory \
-    ${PACKER_ENV_DIR}/packer-inventory/group_vars \
-    ${PACKER_ENV_DIR}/packer-inventory/host_vars
+    ${PACKER_ENV_DIR}/ansible \
+    ${PACKER_ENV_DIR}/ansible/roles \
+    ${PACKER_ENV_DIR}/inventory \
+    ${PACKER_ENV_DIR}/inventory/group_vars \
+    ${PACKER_ENV_DIR}/inventory/host_vars
 
 cd ${PACKER_ENV_DIR}
 PACKER_ENV_DIR=`pwd`
@@ -21,8 +21,8 @@ if ! test -f ${PACKER_ENV_DIR}/custom.auto.pkrvars.hcl; then
   cp ../${PACKER_PROJECT_DIR_NAME}/custom.auto.pkrvars.hcl.dist custom.auto.pkrvars.hcl
 fi
 
-cd ${PACKER_ENV_DIR}/packer-ansible
-ln -sf ../../${PACKER_PROJECT_DIR_NAME}/packer-ansible/base_playbook.yml .
+cd ${PACKER_ENV_DIR}/ansible
+ln -sf ../../${PACKER_PROJECT_DIR_NAME}/base_playbook.yml .
 
 cd ${PACKER_ENV_DIR}/debian/10
 ln -sf ../../../${PACKER_PROJECT_DIR_NAME}/debian/10/base .

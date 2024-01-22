@@ -66,7 +66,7 @@ variable "disk_image" {
 
 variable "headless" {
   type    = bool
-  default = true
+  default = false
 }
 
 variable "vm_name" {
