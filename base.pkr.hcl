@@ -117,13 +117,13 @@ variable "packer_ansible_playbook" {
 
 variable "packer_ansible_playbook_dir" {
   type    = string
-  default = "packer-ansible"
+  default = "ansible"
 }
 
 // Used to import playbook from wrapper playbook run from packer_ansible_playbook_dir
 variable "ansible_repository_playbook_dir" {
   type    = string
-  default = "packer-ansible"
+  default = "ansible"
 }
 
 variable "packer_ansible_playbook_command" {
@@ -183,7 +183,7 @@ variable "packer_ansible_empty_groups" {
 
 variable "packer_ansible_inventory_directory" {
   type    = string
-  default = "packer-inventory"
+  default = ""
 }
 
 variable "packer_ansible_host_alias" {
